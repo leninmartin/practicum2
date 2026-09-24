@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Netics</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #ffffff;
+            color: #111111;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Pure CSS View Controller */
+        input[name="view"] {
+            display: none;
+        }
+
+        .view-section {
+            display: none;
+        }
+
+        /* Show the view corresponding to checked radio */
+        #tab-login:checked ~ #view-login,
+        #tab-signup:checked ~ #view-signup,
+        #tab-dashboard:checked ~ #view-dashboard {
+            display: block;
+        }
+
+        /* Common card styling */
+        .auth-card {
+            max-width: 360px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .input-field {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #888;
+            border-radius: 3px;
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #111111;
+            color: #ffffff;
+            border: 1px solid #111111;
+            border-radius: 3px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .link-btn {
+            color: #111111;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hidden radios that control which page is visible -->
+    <input type="radio" name="view" id="tab-login" checked>
+    <input type="radio" name="view" id="tab-signup">
+    <input type="radio" name="view" id="tab-dashboard">
+
+    <!-- ================= VIEW 1: LOGIN ================= -->
+    <div id="view-login" class="view-section">
+        <header style="text-align: center;">
+            <h1 style="margin: 0 0 5px 0;">Neural Netics</h1>
+            <p style="margin: 0; color: #555;">Neural Network & Model Intelligence Platform</p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px solid #ccc; max-width: 600px; margin: 20px auto;">
+
+        <main class="auth-card">
+            <h2 style="text-align: center; margin-top: 0;">Account Login</h2>
+
+            <form>
+                <p>
+                    <label for="login-email">Email Address:</label><br>
+                    <input type="email" id="login-email" required class="input-field">
+                </p>
+
+                <p>
+                    <label for="login-password">Password:</label><br>
+                    <input type="password" id="login-password" required class="input-field">
+                </p>
+
+                <p>
+                    <!-- Clicking this acts as submitting and opens dashboard -->
+                    <label for="tab-dashboard" class="btn-submit">Log In</label>
+                </p>
+            </form>
+
+            <p style="text-align: center; margin-bottom: 0; font-size: 14px;">
+                New to Neural Netics? 
+                <!-- This label triggers the signup form instantly -->
+                <label for="tab-signup" class="link-btn">Create an account here</label>
+            </p>
+        </main>
+    </div>
+
+    <!-- ================= VIEW 2: SIGN UP ================= -->
+    <div id="view-signup" class="view-section">
+        <header style="text-align: center;">
+            <h1 style="margin: 0 0 5px 0;">Neural Netics</h1>
+            <p style="margin: 0; color: #555;">Neural Network & Model Intelligence Platform</p>
+        </header>
+
+        <hr style="border: 0; border-top: 1px solid #ccc; max-width: 600px; margin: 20px auto;">
+
+        <main class="auth-card">
+            <h2 style="text-align: center; margin-top: 0;">Create Account</h2>
+
+            <form>
+                <p>
+                    <label for="signup-name">Full Name:</label><br>
+                    <input type="text" id="signup-name" required class="input-field">
+                </p>
+
+                <p>
+                    <label for="signup-email">Email Address:</label><br>
+                    <input type="email" id="signup-email" required class="input-field">
+                </p>
+
+                <p>
+                    <label for="signup-password">Password:</label><br>
+                    <input type="password" id="signup-password" minlength="8" required class="input-field">
+                </p>
+
+                <p>
+                    <label for="signup-role">User Role:</label><br>
+                    <select id="signup-role" class="input-field" style="background-color: #fff;">
+                        <option value="researcher">ML Researcher</option>
+                        <option value="engineer">AI / MLOps Engineer</option>
+                        <option value="student">Student / Developer</option>
+                        <option value="analyst">Data Analyst</option>
+                    </select>
+                </p>
+
+                <p>
+                    <!-- Clicking this acts as creating account and opens dashboard -->
+                    <label for="tab-dashboard" class="btn-submit">Sign Up</label>
+                </p>
+            </form>
+
+            <p style="text-align: center; margin-bottom: 0; font-size: 14px;">
+                Already have an account? 
+                <!-- This label triggers the login form instantly -->
+                <label for="tab-login" class="link-btn">Log in here</label>
+            </p>
+        </main>
+    </div>
+
+    <!-- ================= VIEW 3: DASHBOARD ================= -->
+    <div id="view-dashboard" class="view-section">
+        <header style="background-color: #f7f7f8; border-bottom: 1px solid #e0e0e0; padding: 20px; text-align: center;">
+            <h1 style="margin: 0 0 5px 0;">Neural Netics Portal</h1>
+            <p style="margin: 0 0 15px 0; color: #555;">Neural Network Training & Model Telemetry Platform</p>
+            
+            <nav style="font-size: 14px;">
+                <a href="#training" style="color: #111111; text-decoration: none; font-weight: bold;">Launch Job</a> | 
+                <a href="#telemetry" style="color: #111111; text-decoration: none; font-weight: bold;">Network Telemetry</a> | 
+                <a href="#guidelines" style="color: #111111; text-decoration: none; font-weight: bold;">Deployment Guidelines</a> | 
+                <label for="tab-login" style="color: #111111; text-decoration: underline; cursor: pointer;">Logout</label>
+            </nav>
+        </header>
+
+        <main style="max-width: 800px; margin: 30px auto; padding: 0 20px;">
+            <section id="training">
+                <h2>Queue Training Job</h2>
+                <form>
+                    <p>
+                        <label for="model-architecture">Select Neural Architecture:</label><br>
+                        <select id="model-architecture" class="input-field" style="max-width: 320px; background-color: #ffffff;">
+                            <option value="transformer">Transformer (Self-Attention)</option>
+                            <option value="cnn">Deep Convolutional Network (CNN)</option>
+                            <option value="rnn">Recurrent Network (LSTM / GRU)</option>
+                            <option value="gnn">Graph Neural Network (GNN)</option>
+                        </select>
+                    </p>
+
+                    <p>
+                        <label for="scheduled-start">Scheduled Run Date:</label><br>
+                        <input type="date" id="scheduled-start" class="input-field" style="max-width: 200px;">
+                    </p>
+
+                    <button type="button" class="btn-submit" style="display: inline-block; width: auto; padding: 10px 20px;">
+                        Confirm Job Submission
+                    </button>
+                </form>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+
+            <section id="telemetry">
+                <h2>Your Network Telemetry</h2>
+                <ul style="line-height: 1.8;">
+                    <li>Active Synaptic Parameters: <strong>175M Weights</strong></li>
+                    <li>Cumulative Inference Accuracy: <strong>99.1%</strong></li>
+                    <li>Compute Allocation Balance: <strong>480 GPU Hours</strong></li>
+                </ul>
+            </section>
+
+            <hr style="border: 0; border-top: 1px solid #e0e0e0; margin: 30px 0;">
+
+            <section id="guidelines">
+                <h2>Optimization Best Practices</h2>
+                <ol style="line-height: 1.8;">
+                    <li>Normalize and standardize input tensor distributions prior to ingestion.</li>
+                    <li>Apply learning rate warm-up schedules to avoid early gradient divergence.</li>
+                    <li>Track loss landscapes across validation epochs to prevent overfitting.</li>
+                </ol>
+            </section>
+        </main>
+
+        <footer style="text-align: center; margin-top: 40px; padding: 15px; background-color: #f7f7f8; border-top: 1px solid #e0e0e0; font-size: 13px; color: #666;">
+            <p style="margin: 0;">&copy; 2026 Neural Netics. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
